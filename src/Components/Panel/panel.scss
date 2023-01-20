@@ -32,7 +32,7 @@ $colorGrey: #333a4a;
 
     &:hover {
       background-color: $colorYellow;
-      color: #fff;
+      color: transparent;
     }
   }
 
@@ -48,11 +48,11 @@ $colorGrey: #333a4a;
     font-size: $default / 2;
     white-space: nowrap;
     color: $colorGreen;
-    background-color: #fff;
+    background-color: transparent;
     transition: all 0.3s;
   
     &:hover {
-      color: #fff;
+      color: transparent;
       background-color: $colorGreen;
     }
   }
