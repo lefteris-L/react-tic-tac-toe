@@ -1,0 +1,70 @@
+$default: 10vmin;
+$colorGreen: #38c976;
+$colorYellow: #ffc000;
+$colorGrey: #333a4a;
+
+.panel {
+  display: flex;
+  width: 40vmin;
+  height: $default * 7.8;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  border-left: 2px solid $colorGrey;
+  padding-left: $default;
+  
+  &__list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  &__history {
+    margin: 0 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+    font-size: $default / 2;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $colorYellow;
+      color: #fff;
+    }
+  }
+
+  &__reset-button {
+    height: $default;
+    width: 40vmin;
+    box-sizing: border-box;
+    border: solid 2px $colorGreen;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: $default / 2;
+    white-space: nowrap;
+    color: $colorGreen;
+    background-color: #fff;
+    transition: all 0.3s;
+  
+    &:hover {
+      color: #fff;
+      background-color: $colorGreen;
+    }
+  }
+
+  @media (max-width: 320px) {
+    flex-direction: column-reverse;
+    align-self: center;
+    width: 40vmin;
+    height: auto;
+    border: none;
+    padding: 0;
+
+    &__reset-button {
+      margin-bottom: $default / 5;
+    }
+  } 
+}

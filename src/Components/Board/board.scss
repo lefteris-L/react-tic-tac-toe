@@ -1,0 +1,30 @@
+$squareSide: 20vmin;
+
+.board {
+  display: grid;
+  grid: repeat(3, 1fr) / repeat(3, 1fr);
+  
+  &__square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $squareSide;
+    width: $squareSide;
+
+    cursor: pointer;
+    border: solid 2px #333a4a;
+    font-size: $squareSide;
+    font-weight: bold;
+    background-color: #fff;
+    transition: color 0.3s;
+  }
+}
+
+.wrapper {
+  margin: 0 0 10vmin;
+
+  @media (min-width: 320px) {
+    margin: 0 10vmin 0 0;
+  }
+
+}

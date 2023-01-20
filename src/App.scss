@@ -1,0 +1,26 @@
+$default: 10vmin;
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: sans-serif;
+  color: #333a4a;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
+}
+
+.winner {
+  height: $default;
+  margin-bottom: $default;
+  font-size: $default;
+  font-weight:500;
+}
