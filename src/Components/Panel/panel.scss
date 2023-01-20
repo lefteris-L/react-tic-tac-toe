@@ -23,7 +23,7 @@ $colorGrey: #333a4a;
   
   &__history {
     margin: 0 0 2px;
-    padding: 0 5px;
+    width: 100%;
     white-space: nowrap;
     font-size: $default / 2;
     cursor: pointer;
@@ -38,7 +38,7 @@ $colorGrey: #333a4a;
 
   &__reset-button {
     height: $default;
-    width: 40vmin;
+    width: 100%;
     box-sizing: border-box;
     border: solid 2px $colorGreen;
     border-radius: 8px;
