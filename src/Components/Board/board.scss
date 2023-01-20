@@ -18,6 +18,22 @@ $squareSide: 20vmin;
     background-color: #fff;
     transition: color 0.3s;
   }
+
+  & :nth-child(3n+1) {
+    border-left: none;
+  }
+
+  & :nth-child(3n+3) {
+    border-right: none;
+  }
+
+  & :nth-child(-n+3) {
+    border-top: none;
+  }
+
+  & :nth-last-child(-n+3) {
+    border-bottom: none;
+  }
 }
 
 .wrapper {
@@ -26,5 +42,4 @@ $squareSide: 20vmin;
   @media (min-width: 320px) {
     margin: 0 10vmin 0 0;
   }
-
 }
