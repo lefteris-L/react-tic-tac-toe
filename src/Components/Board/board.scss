@@ -39,7 +39,7 @@ $squareSide: 20vmin;
 .wrapper {
   margin: 0 0 10vmin;
 
-  @media (min-width: 320px) {
+  @media (min-width: 480px) {
     margin: 0 10vmin 0 0;
   }
 }
