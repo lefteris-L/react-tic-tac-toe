@@ -32,7 +32,7 @@ $colorGrey: #333a4a;
 
     &:hover {
       background-color: $colorYellow;
-      color: transparent;
+      color: #fff;
     }
   }
 
@@ -52,7 +52,7 @@ $colorGrey: #333a4a;
     transition: all 0.3s;
   
     &:hover {
-      color: transparent;
+      color: #fff;
       background-color: $colorGreen;
     }
   }

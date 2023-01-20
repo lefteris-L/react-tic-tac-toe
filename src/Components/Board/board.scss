@@ -1,4 +1,5 @@
 $squareSide: 20vmin;
+$colorGrey: #333a4a;
 
 .board {
   display: grid;
@@ -12,7 +13,7 @@ $squareSide: 20vmin;
     width: $squareSide;
 
     cursor: pointer;
-    border: solid 2px #333a4a;
+    border: solid 2px $colorGrey;
     font-size: $squareSide;
     font-weight: bold;
     background-color: transparent;

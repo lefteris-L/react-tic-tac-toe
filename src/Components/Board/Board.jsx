@@ -17,7 +17,7 @@ export const Board = ({ board, onPlay }) => {
 
   const handleClick = (index) => {
     if (winner || board[index]) {
-      return
+      return;
     };
 
     const newBoard = [...board];
@@ -41,5 +41,5 @@ export const Board = ({ board, onPlay }) => {
         </button>
       ))}
     </div>
-  )
-}
+  );
+};
