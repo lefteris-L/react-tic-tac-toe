@@ -1,0 +1,72 @@
+$default: 10vmin;
+$colorGreen: #38c976;
+$colorYellow: #ffc000;
+$colorGrey: #333a4a;
+
+.panel {
+  display: flex;
+  width: 60vmin;
+  height: auto;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  border: none;
+  padding: 0;
+  
+  &__list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  &__history {
+    margin: 0 0 2px;
+    width: 100%;
+    white-space: nowrap;
+    font-size: $default / 2;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $colorYellow;
+      color: #fff;
+    }
+  }
+
+  &__reset-button {
+    height: $default;
+    width: 100%;
+    box-sizing: border-box;
+    border: solid 2px $colorGreen;
+    border-radius: 8px;
+    margin-bottom: $default / 5;
+
+    cursor: pointer;
+    font-size: $default / 2;
+    white-space: nowrap;
+    color: $colorGreen;
+    background-color: transparent;
+    transition: all 0.3s;
+  
+    &:hover {
+      color: #fff;
+      background-color: $colorGreen;
+    }
+  }
+
+  @media (min-width: 480px) {
+    flex-direction: column;
+    align-self: flex-end;
+    width: 40vmin;
+    height: $default * 7.8;
+    border-left: 2px solid $colorGrey;
+    padding-left: $default;
+
+    &__reset-button {
+      margin: 0;
+    }
+  } 
+}

@@ -1,0 +1,46 @@
+$squareSide: 20vmin;
+$colorGrey: #333a4a;
+
+.board {
+  display: grid;
+  grid: repeat(3, 1fr) / repeat(3, 1fr);
+  
+  &__square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $squareSide;
+    width: $squareSide;
+
+    cursor: pointer;
+    border: solid 2px $colorGrey;
+    font-size: $squareSide;
+    font-weight: bold;
+    background-color: transparent;
+    transition: color 0.3s;
+  }
+
+  & :nth-child(3n+1) {
+    border-left: none;
+  }
+
+  & :nth-child(3n+3) {
+    border-right: none;
+  }
+
+  & :nth-child(-n+3) {
+    border-top: none;
+  }
+
+  & :nth-last-child(-n+3) {
+    border-bottom: none;
+  }
+}
+
+.wrapper {
+  margin: 0 0 10vmin;
+
+  @media (min-width: 480px) {
+    margin: 0 10vmin 0 0;
+  }
+}
