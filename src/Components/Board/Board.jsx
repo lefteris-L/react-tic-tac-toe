@@ -1,4 +1,5 @@
 import { getWinner } from '../../utils';
+import axios from 'axios';
 import './board.scss';
 
 const green = '#38c976';
@@ -6,8 +7,8 @@ const grey = '#333a4a';
 
 export const Board = ({ board, onPlay }) => {
   const [winner, positions] = getWinner(board);
-  const player = board.filter(square => square)
-    .length % 2 ? 'O' : 'X';
+  // const player = board.filter(square => square)
+  //   .length % 2 ? 'O' : 'X';
 
   const getStyles = (index) => ({
     color: positions?.includes(index)
@@ -15,13 +16,18 @@ export const Board = ({ board, onPlay }) => {
       : grey,
   });
 
-  const handleClick = (index) => {
+  const handleClick = async (index) => {
     if (winner || board[index]) {
       return;
     };
 
     const newBoard = [...board];
-    newBoard[index] = player;
+    newBoard[index] = 'X';
+
+    axios.post('https://api.openai.com/v1/chat/completions', {
+      params: `given this board ${board}, what is the best move for "O"?`
+    }).then(res => newBoard[res.match(/\d/g)[0]] = 'O')
+
     onPlay(newBoard);
   }
 
