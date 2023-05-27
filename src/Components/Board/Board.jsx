@@ -24,11 +24,12 @@ export const Board = ({ board, onPlay }) => {
     const newBoard = [...board];
     newBoard[index] = 'X';
 
-    axios.post('https://api.openai.com/v1/chat/completions', {
-      params: `given this board ${board}, what is the best move for "O"?`
-    }).then(res => newBoard[res.match(/\d/g)[0]] = 'O')
-
-    onPlay(newBoard);
+    axios.post('https://ttt-be.onrender.com', {
+      prompt: `given this array that represents a tic tac toe board ${board}, what is the best move for "O"?`
+    })
+    .then(res => newBoard[res.match(/\d/g)[0]] = 'O')
+    .catch(e => console.error(e))
+    .finally(() => onPlay(newBoard))
   }
 
   return (
