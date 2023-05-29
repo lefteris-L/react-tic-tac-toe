@@ -1,6 +1,6 @@
 {
   "homepage": "https://ttt-with-be.onrender.com/",
-  "name": "react-tic-tac-toe",
+  "name": "ttt-with-be",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
