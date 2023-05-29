@@ -29,8 +29,12 @@ export const Board = ({ board, onPlay }) => {
 
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt,
-    });  
+      prompt
+      }, {
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      });  
 
     newBoard[index] = 'X';
     newBoard[completion.data.match(/\d/g)[0] || 0] = 'O'
