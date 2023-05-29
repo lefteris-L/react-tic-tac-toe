@@ -1,5 +1,5 @@
 import { getWinner } from '../../utils';
-import axios from 'axios';
+import {Configuration, OpenAIApi} from 'openai'
 import './board.scss';
 
 const green = '#38c976';
@@ -17,24 +17,25 @@ export const Board = ({ board, onPlay }) => {
   });
 
   const handleClick = async (index) => {
-    if (winner || board[index]) {
-      return;
-    };
+    if (winner || board[index]) return
 
-    const newBoard = [...board];
+    const newBoard = [...board]
+    const prompt = `given this array that represents a tic tac toe board ${board}, what is the best move for "O"?`
 
-    try {
-      newBoard[index] = 'X';
-      const res = await axios.get('https://ttt-be.onrender.com', {
-        prompt: `given this array that represents a tic tac toe board ${board}, what is the best move for "O"?`
-      })
-      console.log(res);
-      newBoard[res.match(/\d/g)[0] || 0] = 'O'
-    } catch (e) {
-      console.log(e)
-    } finally {
-      onPlay(newBoard)
-    }
+    const openai = new OpenAIApi(new Configuration({
+      organization: process.env.ORGANIZATION,
+      apiKey: process.env.OPENAI_API_KEY
+    }))
+
+    const completion = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt,
+    });  
+
+    newBoard[index] = 'X';
+    newBoard[completion.data.match(/\d/g)[0] || 0] = 'O'
+    
+    onPlay(newBoard)
   }
 
   return (
