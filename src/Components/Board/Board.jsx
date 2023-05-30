@@ -16,7 +16,7 @@ export const Board = ({ board, onPlay }) => {
       : grey,
   });
 
-  const handleClick = (index) => {
+  const handleClick = async (index) => {
     if (winner || board[index]) return
 
     const newBoard = [...board]
@@ -27,16 +27,13 @@ export const Board = ({ board, onPlay }) => {
       apiKey: process.env.OPENAI_API_KEY
     }))
 
-    let completion = null
-    const getCompletion = async () => {
-      await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt
-      }, {
-        headers: {
-          'Access-Control-Allow-Origin': '*'
+    let completion = {data: '0'}
+    const getCompletion = () => {
+      openai.createCompletion({
+        model: "text-davinci-003",
+        prompt
         }
-      })
+      )
     }
 
     try {
@@ -46,7 +43,7 @@ export const Board = ({ board, onPlay }) => {
     }
 
     newBoard[index] = 'X';
-    if (completion) newBoard[completion.data.match(/\d/g)[0] || 0] = 'O'
+    if (completion) newBoard[(completion.data.match(/\d/g) || [])[0]] = 'O'
     
     onPlay(newBoard)
   }
